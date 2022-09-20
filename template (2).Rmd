@@ -3,4 +3,64 @@ title: "data import"
 output: github_document
 ---
 
+```{r, echo = False}
+library (tidyverse)
+library (readxl)
+library (haven)
+```
+
+
 ## Data Import: CSVs
+
+Let's import data using 'readr' package
+
+```{r}
+litters_df = read.csv("data_import_examples/FAS_litters.csv")
+litters_df = janitor::clean_names(litters_df)
+```
+
+look at that data
+
+```{r}
+litters_df
+
+head (litters_df)
+tail (litters_df)
+```
+
+```{r, eval = FALSE}
+View(litters_df)
+
+
+```
+
+```{r}
+skimr::skim(litters_df)
+```
+
+
+'read_CSV" options
+
+```{r}
+read_csv("data_import_examples/FAS_litters.csv", na=c("", "NA",999,88), skip = 2 )
+```
+
+## Other file formats
+we need to read in excel spreadsheet..
+
+```{r}
+mlb_
+```
+
+```{r}
+pulse_df = read_sas(data/public_pulse_data.sas7bdat)
+```
+
+
+## Data export
+
+## Why not base r?
+```{r}
+dont_do_this_df = read.csv("data_import_examples/FAS_litters.csv")
+```
+
