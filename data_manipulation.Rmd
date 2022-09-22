@@ -1,0 +1,46 @@
+---
+title: "data manipulation with dplyr"
+output: github_document
+---
+
+```{r}
+library (tidyverse)
+```
+ 
+options(tibble.print_min = 3)
+```{r}
+litters_data = read_csv("data_import_examples/FAS_litters.csv")
+litters_data = janitor::clean_names(litters_data)
+```
+
+```{r}
+pups_data = read_csv("data_import_examples/FAS_pups.csv")
+pups_data = janitor::clean_names(pups_data)
+```
+
+
+#select
+
+```{r}
+select(litters_data, group, litter_number, gd0_weight, pups_born_alive)
+```
+
+```{r}
+select(litters_data, group:gd_of_birth)
+```
+
+```{r}
+select(litters_data, -pups_survive)
+
+```
+
+#rename
+```{r}
+select(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
+#use rename instead of select
+```{r}
+rename(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
+```
+
