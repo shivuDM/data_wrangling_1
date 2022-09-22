@@ -56,7 +56,7 @@ select(litters_data, starts_with("gd") )
 select(litters_data, litter_number, pups_survive, everything() )
 ```
 
-##filter
+#filter
 will be using comparison operators ('>','>=','<','<=','==' and '!=')
 '%in%' to detect if values appear in set, and 'in()' to find any missing values
 
@@ -159,5 +159,13 @@ litters_data
 ```
 
 NOTE: '%>%' is "then": keyboard shortcuts: ctrl+shift+M
+
+#piping with non-tidyverse function
+
+```{r}
+litters_data %>%
+  lm(wt_gain ~ pups_born_alive, data = .) %>%
+  broom::tidy()
+```
 
 
