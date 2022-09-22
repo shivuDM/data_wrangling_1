@@ -44,3 +44,15 @@ select(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
 rename(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
 ```
 
+#select functions
+there are certain functions that can be used: 'starts with(), ends with(), contains()
+
+```{r}
+select(litters_data, starts_with("gd") )
+```
+
+#to pull variables in front
+```{r}
+select(litters_data, litter_number, pups_survive, everything() )
+```
+

@@ -152,3 +152,47 @@ rename(litters_data, GROUP = group, LiTtEr_NuMbEr = litter_number)
     ## 10 Con8  #3/5/2/2/95           28.5        NA         20       8       0       8
     ## # … with 39 more rows, and abbreviated variable names ¹​gd_of_birth,
     ## #   ²​pups_born_alive, ³​pups_dead_birth, ⁴​pups_survive
+
+\#select functions there are certain functions that can be used: ’starts
+with(), ends with(), contains()
+
+``` r
+select(litters_data, starts_with("gd") )
+```
+
+    ## # A tibble: 49 × 3
+    ##    gd0_weight gd18_weight gd_of_birth
+    ##         <dbl>       <dbl>       <dbl>
+    ##  1       19.7        34.7          20
+    ##  2       27          42            19
+    ##  3       26          41.4          19
+    ##  4       28.5        44.1          19
+    ##  5       NA          NA            20
+    ##  6       NA          NA            20
+    ##  7       NA          NA            20
+    ##  8       NA          NA            20
+    ##  9       NA          NA            20
+    ## 10       28.5        NA            20
+    ## # … with 39 more rows
+
+\#to pull variables in front
+
+``` r
+select(litters_data, litter_number, pups_survive, everything() )
+```
+
+    ## # A tibble: 49 × 8
+    ##    litter_number   pups_survive group gd0_weight gd18_…¹ gd_of…² pups_…³ pups_…⁴
+    ##    <chr>                  <dbl> <chr>      <dbl>   <dbl>   <dbl>   <dbl>   <dbl>
+    ##  1 #85                        3 Con7        19.7    34.7      20       3       4
+    ##  2 #1/2/95/2                  7 Con7        27      42        19       8       0
+    ##  3 #5/5/3/83/3-3              5 Con7        26      41.4      19       6       0
+    ##  4 #5/4/2/95/2                4 Con7        28.5    44.1      19       5       1
+    ##  5 #4/2/95/3-3                6 Con7        NA      NA        20       6       0
+    ##  6 #2/2/95/3-2                4 Con7        NA      NA        20       6       0
+    ##  7 #1/5/3/83/3-3/2            9 Con7        NA      NA        20       9       0
+    ##  8 #3/83/3-3                  8 Con8        NA      NA        20       9       1
+    ##  9 #2/95/3                    8 Con8        NA      NA        20       8       0
+    ## 10 #3/5/2/2/95                8 Con8        28.5    NA        20       8       0
+    ## # … with 39 more rows, and abbreviated variable names ¹​gd18_weight,
+    ## #   ²​gd_of_birth, ³​pups_born_alive, ⁴​pups_dead_birth
